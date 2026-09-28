@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>5k Example</title>
+</head>
+<body>
+  <p>Cart Quantity: <span id="cart-quantity">0</span></p>
+
+  <!-- Add to cart buttons -->
+  <button onclick="updateCart(1)">+1</button>
+  <button onclick="updateCart(2)">+2</button>
+  <button onclick="updateCart(3)">+3</button>
+  <button onclick="updateCart(4)">+4</button>
+  <button onclick="updateCart(5)">+5</button>
+
+  <!-- Remove from cart buttons -->
+  <button onclick="removeFromCart(1)">Remove 1</button>
+  <button onclick="removeFromCart(2)">-2</button>
+  <button onclick="removeFromCart(3)">-3</button>
+
+  <!-- Reset cart -->
+  <button onclick="resetCart()">Reset</button>
+
+  <script>
+    let cartQuantity = 0;
+
+    function updateCart(amount) {
+      cartQuantity += amount; 
+      document.getElementById("cart-quantity").innerText = cartQuantity;
+      console.log(`Cart Quantity: ${cartQuantity}`);
+    }
+
+    function removeFromCart(amount) {
+      cartQuantity -= amount; 
+      if (cartQuantity < 0) cartQuantity = 0; 
+      document.getElementById("cart-quantity").innerText = cartQuantity;
+      console.log(`Cart Quantity: ${cartQuantity}`);
+    }
+
+    function resetCart() {
+      cartQuantity = 0;
+      document.getElementById("cart-quantity").innerText = cartQuantity;
+      console.log("Cart reset to 0");
+    }
+  </script>
+</body>
+</html>
