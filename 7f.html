@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function convertTemperature(degrees, unit) {
+  if (unit === 'C') {
+    return `${convertToFahrenheit(degrees)}F`;
+  } else if (unit === 'F') {
+    return `${convertToCelsius(degrees)}C`;
+  } else {
+    return "Invalid unit. Use 'C' or 'F'.";
+  }
+}
+
+console.log(convertTemperature(25, 'C')); 
+console.log(convertTemperature(86, 'F'));
+
+    </script>
+</body>
+</html>

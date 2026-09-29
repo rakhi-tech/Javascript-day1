@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+</head>
+<body>
+  <h2>Temperature Converter</h2>
+
+  <label for="degrees">Enter temperature:</label>
+  <input type="number" id="degrees" placeholder="e.g. 25">
+
+  <label for="fromUnit">From:</label>
+  <select id="fromUnit">
+    <option value="C">Celsius</option>
+    <option value="F">Fahrenheit</option>
+    <option value="K">Kelvin</option>
+  </select>
+
+  <label for="toUnit">To:</label>
+  <select id="toUnit">
+    <option value="C">Celsius</option>
+    <option value="F">Fahrenheit</option>
+    <option value="K">Kelvin</option>
+  </select>
+
+  <button onclick="convert()">Convert</button>
+
+  <p id="result"></p>
+
+  <script>
+    function convertTemperature(degrees, fromUnit, toUnit) {
+      fromUnit = fromUnit.toUpperCase();
+      toUnit = toUnit.toUpperCase();
+      let result;
+
+      if (fromUnit === 'C' && toUnit === 'F') {
+        result = (degrees * 9 / 5) + 32;
+      } else if (fromUnit === 'F' && toUnit === 'C') {
+        result = (degrees - 32) * 5 / 9;
+      } else if (fromUnit === 'C' && toUnit === 'K') {
+        result = degrees + 273.15;
+      } else if (fromUnit === 'K' && toUnit === 'C') {
+        result = degrees - 273.15;
+      } else if (fromUnit === 'F' && toUnit === 'K') {
+        result = ((degrees - 32) * 5 / 9) + 273.15;
+      } else if (fromUnit === 'K' && toUnit === 'F') {
+        result = ((degrees - 273.15) * 9 / 5) + 32;
+      } else if (fromUnit === toUnit) {
+        result = degrees;
+      } else {
+        return "Invalid units.";
+      }
+
+      return `${result.toFixed(2)} ${toUnit}`;
+    }
+
+    function convert() {
+      let degrees = parseFloat(document.getElementById("degrees").value);
+      let fromUnit = document.getElementById("fromUnit").value;
+      let toUnit = document.getElementById("toUnit").value;
+
+      let result = convertTemperature(degrees, fromUnit, toUnit);
+      document.getElementById("result").innerText = "Converted: " + result;
+    }
+  </script>
+</body>
+</html>

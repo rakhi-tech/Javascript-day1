@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function convertTemperatureAdvanced(degrees, fromUnit, toUnit) {
+  fromUnit = fromUnit.toUpperCase();
+  toUnit = toUnit.toUpperCase();
+
+  if (fromUnit === 'C' && toUnit === 'F') {
+    return `${((degrees * 9 / 5) + 32).toFixed(1)}F`;
+  } else if (fromUnit === 'F' && toUnit === 'C') {
+    return `${((degrees - 32) * 5 / 9).toFixed(1)}C`;
+  } else if (fromUnit === toUnit) {
+    return `${degrees.toFixed(1)}${toUnit}`;
+  } else {
+    return "Invalid units. Use 'C' or 'F'.";
+  }
+}
+
+// Examples:
+console.log(convertTemperatureAdvanced(25, 'C', 'F')); 
+console.log(convertTemperatureAdvanced(86, 'F', 'C')); 
+console.log(convertTemperatureAdvanced(100, 'C', 'C'));
+
+    </script>
+</body>
+</html>

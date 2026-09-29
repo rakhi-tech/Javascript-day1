@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function convertToFahrenheit(celsius) {
+  return (celsius * 9 / 5) + 32;
+}
+
+function convertToCelsius(fahrenheit) {
+  return (fahrenheit - 32) * 5 / 9;
+}
+
+function convertTemperature(degrees, unit) {
+  if (unit === 'C') {
+    return `${Math.round(convertToFahrenheit(degrees))}F`;
+  } else if (unit === 'F') {
+    return `${Math.round(convertToCelsius(degrees))}C`;
+  } else {
+    return "Invalid unit. Use 'C' or 'F'.";
+  }
+}
+
+
+function interactiveConverter() {
+  let degrees = parseFloat(prompt("Enter the temperature value:"));
+  let unit = prompt("Enter the unit (C or F):").toUpperCase();
+
+  let result = convertTemperature(degrees, unit);
+  alert(`Converted temperature: ${result}`);
+}
+
+interactiveConverter();
+
+    </script>
+</body>
+</html>
